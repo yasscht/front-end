@@ -7,9 +7,11 @@ import ReactPaginate from "react-paginate";
 import { players } from "./players";
 
 function App() {
+  const [isFetching, setIsFetching] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3000`).then((response) => setData(response));
+    setIsFetching(!isFetching);
   }, []);
   console.log(data);
   if (data.length === 0) {
@@ -52,6 +54,7 @@ function App() {
           itemsPerPage={6}
           currentItems={currentItems}
           players={currentItems}
+          isFetching={isFetching}
         />
         <ReactPaginate
           breakLabel="..."
