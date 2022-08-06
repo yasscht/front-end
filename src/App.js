@@ -7,7 +7,15 @@ import ReactPaginate from "react-paginate";
 import { players } from "./players";
 
 function App() {
-  const [currentItems, setCurrentItems] = useState(players);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3000`).then((response) => setData(response));
+  }, []);
+  console.log(data);
+  if (data.length === 0) {
+    setData(players);
+  }
+  const [currentItems, setCurrentItems] = useState(data);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
