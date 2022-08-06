@@ -65,7 +65,7 @@ function App() {
           nextLabel="next >"
           className="flex items-center space-x-6 "
           breakLinkClassName=""
-          activeClassName="p-3 bg-blue-300 text-white"
+          activeClassName="p-3 bg-blue-300 text-white rounded"
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={pageCount}
