@@ -48,7 +48,11 @@ function App() {
   return (
     <div className="w-full">
       <Layout>
-        <Input onChange={(event) => onChange(event)} name="firstName" />
+        <Input
+          onChange={(event) => onChange(event)}
+          name="firstName"
+          isSearch
+        />
         <CardContainer
           searchName={searchName}
           itemsPerPage={6}
